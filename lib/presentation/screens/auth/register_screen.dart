@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:productsapp/core/Validator/form_validators.dart';
+import 'package:productsapp/config/Validator/form_validators.dart';
 import '../../../config/routes/app_routes.dart';
 import '../../widgets/widgets.dart';
 
