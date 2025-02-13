@@ -39,7 +39,7 @@ const RegisterScreen({super.key});
                  SizedBox(height: 20,),
                  CustomButtom(onpress: () { formKey.currentState!.validate(); },icon: Icons.arrow_forward, text: 'Registrarse', ),
                  SizedBox(height: 20,),
-                 Center(child: CustomTextButtom(textCuestion: ' ¿Tienes una Cuenta ?', textAnsuwer: 'Ingresar', onPress: () { Navigator.pushNamed(context,AppRoutes.login );},)),
+                 Center(child: CustomTextButtom(textCuestion: ' ¿Tienes una Cuenta ?', textAnsuwer: 'Ingresar', onPress: () { appRouter.go('/');},)),
               ],),
             ),
           ),

@@ -38,7 +38,7 @@ const LoginScreen({super.key});
                  SizedBox(height: 20,),
                  CustomButtom(onpress: () { formKey.currentState!.validate(); },icon: Icons.arrow_forward, text: 'Ingresar', ),
                  SizedBox(height: 20,),
-                 Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {Navigator.pushNamed(context, Ma);},)),
+                 Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () { appRouter.go("/register");},)),
               ],),
             ),
           ),

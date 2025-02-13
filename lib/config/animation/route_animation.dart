@@ -1,23 +1,26 @@
+
 import 'package:flutter/material.dart';
 
-class RouterAnimation {
-  static Route createRoute(Widget screen) {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => screen,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 1.0); // Desde abajo
-        const end = Offset.zero; // Llega al centro
-        const curve = Curves.ease;
-
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-        var offsetAnimation = animation.drive(tween);
-
-        return SlideTransition(
-          position: offsetAnimation,
+class SnakeTrasition extends StatelessWidget {
+  const SnakeTrasition({super.key, required this.child, required this.offset, required this.curve, required this.duration,});
+  final Widget child;
+  final Offset offset;
+  final Curve curve;
+  final  Duration duration;
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+      curve: curve,
+      tween: Tween(begin: 1.0,end: 0.0), 
+       duration: duration, 
+       builder: (context,value,child){
+          return Transform.translate(offset: offset*value,
           child: child,
-        );
-      },
-      transitionDuration: const Duration(milliseconds: 500), // Controla la duración
-    );
+          
+          );
+       },
+      child: child,
+      
+       );
   }
 }
