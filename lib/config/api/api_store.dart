@@ -6,9 +6,10 @@ class ApiStore {
 final Dio _dio =Dio();
 
 Future<Response> get(String path)async{
-  String url = dotenv.env['API_URL']??'';
+  String baseUrl = dotenv.env['API_URL']??'';
+   String fullUrl = Uri.parse('$baseUrl/$path').toString();
   try {
-    return await _dio.get("$url/$path");
+    return await _dio.get(fullUrl);
   } catch (e) {
     throw Exception("Error al optener data $e");
   }
