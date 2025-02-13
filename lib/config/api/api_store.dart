@@ -6,8 +6,7 @@ class ApiStore {
 final Dio _dio =Dio();
 
 Future<Response> get(String path)async{
-  String baseUrl = dotenv.env['API_URL']??'';
-   String fullUrl = Uri.parse('$baseUrl/$path').toString();
+   String fullUrl = Uri.parse('${dotenv.env['API_URL']}/$path').toString();
   try {
     return await _dio.get(fullUrl);
   } catch (e) {
