@@ -1,0 +1,2 @@
+/home/yerytech/Desktop/productAppFlutter/productsapp/android/app/.cxx/Debug/281cl6b1/x86/CMakeFiles/edit_cache.dir
+/home/yerytech/Desktop/productAppFlutter/productsapp/android/app/.cxx/Debug/281cl6b1/x86/CMakeFiles/rebuild_cache.dir
