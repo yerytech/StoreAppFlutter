@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:productsapp/config/routes/app_routes.dart';
+
 import 'package:productsapp/core/Validator/form_validators.dart';
 import '../../widgets/widgets.dart';
 
@@ -36,7 +38,7 @@ const LoginScreen({super.key});
                  SizedBox(height: 20,),
                  CustomButtom(onpress: () { formKey.currentState!.validate(); },icon: Icons.arrow_forward, text: 'Ingresar', ),
                  SizedBox(height: 20,),
-                 Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {  },)),
+                 Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {Navigator.pushNamed(context, AppRoutes.register);},)),
               ],),
             ),
           ),
