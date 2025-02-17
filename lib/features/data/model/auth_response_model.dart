@@ -1,24 +1,18 @@
-import 'dart:convert';
 
-AuthResponseModel authResponseFromJson(String str) => AuthResponseModel.fromJson(json.decode(str));
 
-String authResponseToJson(AuthResponseModel data) => json.encode(data.toJson());
 
-class AuthResponseModel {
-    String id;
-    String email;
-    String fullName;
-    bool isActive;
-    List<String> roles;
-    String token;
+import 'package:productsapp/features/domain/entities/auth.respose.entity.dart';
+
+class AuthResponseModel extends AuthResponseEntity {
+ 
 
     AuthResponseModel({
-        required this.id,
-        required this.email,
-        required this.fullName,
-        required this.isActive,
-        required this.roles,
-        required this.token,
+        required super.id,
+        required super.email,
+        required super.fullName,
+        required super.isActive,
+        required super.role,
+        required super.token,
     });
 
     factory AuthResponseModel.fromJson(Map<String, dynamic> json) => AuthResponseModel(
@@ -26,7 +20,7 @@ class AuthResponseModel {
         email: json["email"],
         fullName: json["fullName"],
         isActive: json["isActive"],
-        roles: List<String>.from(json["roles"].map((x) => x)),
+        role: List<String>.from(json["roles"].map((x) => x)),
         token: json["token"],
     );
 
@@ -35,7 +29,19 @@ class AuthResponseModel {
         "email": email,
         "fullName": fullName,
         "isActive": isActive,
-        "roles": List<dynamic>.from(roles.map((x) => x)),
+        "roles": List<dynamic>.from(role.map((x) => x)),
         "token": token,
     };
+
+    factory AuthResponseModel.fromEntity(AuthResponseEntity authResponseentity){
+      return AuthResponseModel(
+       id: authResponseentity.id,
+       email: authResponseentity.email,
+       fullName: authResponseentity.fullName,
+       isActive: authResponseentity.isActive,
+       role: authResponseentity.role,
+       token: authResponseentity.token,
+
+      );
+    }
 }
