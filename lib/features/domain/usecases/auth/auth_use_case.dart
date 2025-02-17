@@ -16,8 +16,6 @@ class AuthUseCase {
     return authRepository.register(fullName,email, password);
   }
   
-  Future<AuthResponseEntity>checkStatus() async{
-    return authRepository.checkStatus();
-  }
+ 
 
 }
