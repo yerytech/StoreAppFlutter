@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:productsapp/config/Validators/form_validators.dart';
-import 'package:productsapp/presentation/controller/form_controller/form_controller.dart';
-import '../../../config/routes/app_routes.dart';
+import 'package:productsapp/features/presentation/controller/form_controller/form_controller.dart';
+import '../../../../config/routes/app_routes.dart';
 import '../../widgets/widgets.dart';
 
 

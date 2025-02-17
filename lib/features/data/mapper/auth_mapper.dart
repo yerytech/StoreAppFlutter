@@ -1,6 +1,6 @@
 // Mapper en la capa Data (si decides hacerlo aquí)
-import 'package:productsapp/data/model/auth_response_model.dart';
-import 'package:productsapp/domain/entities/auth.respose.entity.dart';
+import 'package:productsapp/features/data/model/auth_response_model.dart';
+import 'package:productsapp/features/domain/entities/auth.respose.entity.dart';
 
 class AuthMapper {
   static AuthResponseEntity toEntity(AuthResponseModel model) {

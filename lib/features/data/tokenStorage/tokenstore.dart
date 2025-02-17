@@ -1,7 +1,7 @@
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import 'package:productsapp/domain/repositories/securestorage/secure_store.dart';
+import 'package:productsapp/features/domain/repositories/securestorage/secure_store.dart';
 
 class TokenStorage implements SecureStorageRepository {
   final FlutterSecureStorage _secureStorage;

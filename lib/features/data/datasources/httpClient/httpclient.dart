@@ -1,6 +1,6 @@
 // ignore: implementation_imports
 import 'package:dio/dio.dart';
-import 'package:productsapp/domain/repositories/hettpclient/http_client.dart';
+import 'package:productsapp/features/data/repository/http_client_repositoy.dart';
 
 class CustomHttpclient implements CustomHttpClientRepository {
   final Dio _httpClient;

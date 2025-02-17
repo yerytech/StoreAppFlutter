@@ -1,7 +1,7 @@
 
 
-import 'package:productsapp/domain/entities/auth.respose.entity.dart';
-import 'package:productsapp/domain/repositories/auth/auth_repository.dart';
+import 'package:productsapp/features/domain/entities/auth.respose.entity.dart';
+import 'package:productsapp/features/domain/repositories/auth/auth_repository.dart';
 
 class AuthUseCase {
   final AuthRepository authRepository;
