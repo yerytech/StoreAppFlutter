@@ -24,7 +24,7 @@ class AuthRemoteDataImple implements AuthRemoteDataSource {
         "password":password
        });
 
-           log(" $response");
+           log(" ${response.data}");
         return AuthResponseModel.fromJson(response.data);
 
     } catch (e) {
