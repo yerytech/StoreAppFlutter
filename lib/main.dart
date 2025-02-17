@@ -7,9 +7,9 @@ import 'package:productsapp/config/routes/app_routes.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    await dotenv.load(fileName: '.env');
+    await dotenv.load(fileName: 'lib/config/api/.env');
   } catch (e) {
-    throw Exception("Error al leer la variables :e");
+    throw Exception("Error al leer la variables :$e");
   }
 
   

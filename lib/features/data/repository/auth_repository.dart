@@ -1,4 +1,7 @@
 
+
+
+
 import 'package:productsapp/features/data/datasources/auth/auth_data.dart';
 import 'package:productsapp/features/domain/entities/auth.respose.entity.dart';
 import 'package:productsapp/features/domain/repositories/auth/auth_repository.dart';
@@ -14,8 +17,10 @@ final AuthRemoteDataSource authRemoteDataSource;
   Future<AuthResponseEntity> login(String email, String password) async {
    try {
      final resp= await authRemoteDataSource.authLogin(email, password);
+       
       return resp;
    } catch (e) {
+
      throw Exception("error en login $e");
    }
   }

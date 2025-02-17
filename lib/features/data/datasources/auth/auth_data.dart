@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:productsapp/features/data/model/auth_response_model.dart';
@@ -22,7 +24,7 @@ class AuthRemoteDataImple implements AuthRemoteDataSource {
         "password":password
        });
 
-       
+           log(" $response");
         return AuthResponseModel.fromJson(response.data);
 
     } catch (e) {

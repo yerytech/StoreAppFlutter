@@ -19,6 +19,7 @@ const LoginScreen({super.key});
   @override
   Widget build(BuildContext context,ref) {
     final formState= ref.watch(formControllersProvider);
+
    
 
     var size = MediaQuery.of(context).size;
@@ -51,10 +52,10 @@ const LoginScreen({super.key});
                CustomButtom(onpress: () async {
                 formState.formKey.currentState!.validate();
                   
-                    ref.watch(authProvider.notifier).login(formState.emailController.text, formState.passwordController.text);
+                   await ref.watch(authProvider.notifier).login(formState.emailController.text, formState.passwordController.text);
                     
                 
-                 },icon: Icons.arrow_forward, text: 'Ingresar', disable: false,  ),
+                 },icon: Icons.arrow_forward, text: 'Ingresar', disable:false ),
                SizedBox(height: 20,),
                Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () { appRouter.go("/register");},)),
             ],),
