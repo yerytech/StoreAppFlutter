@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/yerytech/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/yerytech/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/yerytech/Desktop/productAppFlutter/productsapp/android/app/.cxx/Debug/6g1o7260/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/yerytech/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/yerytech/Desktop/productAppFlutter/productsapp/android/app/.cxx/Debug/6g1o7260/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

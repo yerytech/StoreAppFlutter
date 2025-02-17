@@ -1,0 +1,1 @@
+/home/yerytech/Desktop/productAppFlutter/productsapp/build/app/intermediates/cxx/Debug/6g1o7260/obj/x86_64

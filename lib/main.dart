@@ -1,8 +1,10 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:productsapp/config/routes/app_routes.dart';
+
 
 
 
@@ -11,17 +13,25 @@ Future main() async {
   try {
     await dotenv.load(fileName: '.env');
   } catch (e) {
-    log("error con la variable: $e");
+    throw Exception("Error al leer la variables :e");
   }
-runApp(const MyApp());
+
+  
+runApp(
+  
+  
+  const ProviderScope(child: MyApp(),));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,ref) {
+
+     
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
 routerConfig: appRouter,
     );
 }}

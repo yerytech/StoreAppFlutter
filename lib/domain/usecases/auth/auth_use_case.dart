@@ -8,8 +8,16 @@ class AuthUseCase {
 
   AuthUseCase(this.authRepository);
 
-  Future<AuthResponseEntity> execute(String email,String password)async{
+  Future<AuthResponseEntity> login(String email,String password)async{
     return authRepository.login(email, password);
+  }
+  
+  Future<AuthResponseEntity> register(String fullName,   String email,String password)async{
+    return authRepository.register(fullName,email, password);
+  }
+  
+  Future<AuthResponseEntity>checkStatus() async{
+    return authRepository.checkStatus();
   }
 
 }
