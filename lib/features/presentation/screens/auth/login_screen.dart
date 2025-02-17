@@ -6,6 +6,7 @@ import 'package:productsapp/config/routes/app_routes.dart';
 import 'package:productsapp/config/Validators/form_validators.dart';
 
 import 'package:productsapp/features/presentation/controller/form_controller/form_controller.dart';
+import 'package:productsapp/features/presentation/providers/auth_state_notifier.dart';
 
 
 import '../../widgets/widgets.dart';
@@ -50,7 +51,7 @@ const LoginScreen({super.key});
                CustomButtom(onpress: () async {
                 formState.formKey.currentState!.validate();
                   
-                    
+                    ref.watch(authProvider.notifier).login(formState.emailController.text, formState.passwordController.text);
                     
                 
                  },icon: Icons.arrow_forward, text: 'Ingresar', disable: false,  ),
