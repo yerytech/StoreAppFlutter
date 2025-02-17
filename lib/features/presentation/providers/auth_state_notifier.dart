@@ -1,7 +1,4 @@
 
-
-
-import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:productsapp/features/data/datasources/auth/auth_data.dart';
 import 'package:productsapp/features/data/repository/auth_repository.dart';
@@ -17,10 +14,10 @@ Future<void> login (String email ,String password) async{
 state=state.copyWith(isLoading: true,errorMessage: null);
 try {
   final resp = await authUseCase.login(email, password);
-  log(resp.token);
+
   state=state.copyWith(isLoading: false,authresponse: resp);
 } catch (e) {
-  log(e.toString());
+ 
   state=state.copyWith(errorMessage: "error al iniciar cessión",isLoading: false);
 }
 }
