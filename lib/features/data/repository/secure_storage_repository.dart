@@ -9,17 +9,17 @@ class SecureStorageRepositoryImpl implements SecureStorageRepository {
   @override
   Future<bool> delete({required String key}) {
    
-    return _tokenStorage.delete(key: key);
+    return _tokenStorage.delete(key);
   }
   
   @override
   Future<String> read({required String key}) {
-     return _tokenStorage.read(key: key);
+     return _tokenStorage.read( key);
   }
   
   @override
   Future<bool> save({required String key, required String value}) {
-     return _tokenStorage.save(key: key, value: value);
+     return _tokenStorage.save( key,  value);
   
   }
   
