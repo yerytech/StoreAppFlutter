@@ -6,7 +6,7 @@ import '../../features/presentation/screens/screens.dart';
 
 
 final GoRouter appRouter= GoRouter(
-  initialLocation: "/",
+  initialLocation: "/home",
    routes: <RouteBase>[
     GoRoute(path: "/e",pageBuilder: (context,state){
       return CustomTransitionPage(child: const LoadingScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){

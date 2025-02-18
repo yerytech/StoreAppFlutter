@@ -2,12 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
+
 class HomeScreen extends ConsumerWidget {
 const HomeScreen({super.key});
   @override
   Widget build(BuildContext context, ref) {
-    return const Scaffold(
-      body: Column(children: [],)
+    return  Scaffold(
+      body: Center(
+        child: Column(
+          
+         crossAxisAlignment: CrossAxisAlignment.center,
+         mainAxisAlignment: MainAxisAlignment.center,
+            
+        
+          children: [
+          Text("Home Screen"),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(20)
+            ),
+            
+            child: TextButton(onPressed: (){
+
+            } , child: Text("Salir" ,style: TextStyle(color: Colors.white),)))
+        
+        
+        ],),
+      )
    );
   }
 }
