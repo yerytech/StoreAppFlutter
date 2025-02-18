@@ -15,7 +15,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   
   AuthNotifier(this.authUseCase,this.secureStorage): super(AuthState());
   
-Future<void> login (String email ,String password) async{
+Future<void> logIn (String email ,String password) async{
 state=state.copyWith(isLoading: true,errorMessage: null);
 try {
   final resp = await authUseCase.login(email, password);
@@ -23,13 +23,43 @@ try {
      await secureStorage.save(value: resp.token);
   }
 
-
-  state=state.copyWith(isLoading: false,authresponse: resp);
+  state=state.copyWith(isLoading: false,authresponse: resp,token: resp.token);
 } catch (e) {
  
   state=state.copyWith(errorMessage: "error al iniciar cessión",isLoading: false);
 }
 }
+
+
+Future<void> logOut () async{
+state=state.copyWith(isLoading: true,errorMessage: null);
+try {
+  final resp = await  secureStorage.read();
+  if (resp.isNotEmpty) {
+     await secureStorage.delete();
+  }
+  state=state.copyWith(isLoading: false,authresponse: null,token: null);
+} catch (e) {
+ 
+  state=state.copyWith(errorMessage: "error al iniciar cessión",isLoading: false);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
@@ -67,19 +97,9 @@ final authUseCaseProvider = Provider<AuthUseCase>((ref) {
 
 
 
-final authProvider = StateNotifierProvider<AuthNotifier,AuthState>((ref) {
+final authProvider = StateNotifierProvider<AuthNotifier,AuthState>((ref)  {
   final authUseCase=ref.watch(authUseCaseProvider);
   final secureStorage= ref.watch(secureStorageProvider);
-
    return AuthNotifier(authUseCase,secureStorage);
 });
 
-
-final authCheckProvider = FutureProvider<String>((ref) async {
-
-  final secureStorage =ref.watch(secureStorageProvider);
-
-  final token = await secureStorage.read();
-  return token;
-
-});

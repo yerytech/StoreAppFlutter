@@ -20,6 +20,9 @@ const LoginScreen({super.key});
   Widget build(BuildContext context,ref) {
     final formState= ref.watch(formControllersProvider);
     final goRouter=ref.watch(goRouterProvider);
+    final authCheeck = ref.read(authProvider);
+   
+
 
    
 
@@ -53,10 +56,9 @@ const LoginScreen({super.key});
                CustomButton(onPress: () async {
                 formState.formKey.currentState!.validate();
                   
-                   await ref.watch(authProvider.notifier).login(formState.emailController.text, formState.passwordController.text);
-                    
+                    ref.watch(authProvider.notifier).logIn(formState.emailController.text, formState.passwordController.text);             
                 
-                 },icon: Icons.arrow_forward, text: 'Ingresar', disable:false ),
+                 },icon: Icons.arrow_forward, text: 'Ingresar', disable:authCheeck.isloading ),
                SizedBox(height: 20,),
                Center(child: CustomTextButton(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {  goRouter.go('/register');    },)),
             ],),

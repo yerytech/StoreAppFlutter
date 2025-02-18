@@ -16,42 +16,45 @@ final goRouterProvider = Provider<GoRouter>((ref) {
    routes: <RouteBase>[
     GoRoute(path: "/loading",pageBuilder: (context,state){
       return CustomTransitionPage(child: const LoadingScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity: animation.drive(CurveTween(curve: Curves.ease)),child: child,);
+        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
       });
     }),
     GoRoute(path: "/login", pageBuilder: (context, state) {
       return CustomTransitionPage(child: const LoginScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity: animation.drive(CurveTween(curve: Curves.ease)),child: child,);
+        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
       });
     },),
     GoRoute(
       path: "/register",
       pageBuilder: (context, state) {
         return CustomTransitionPage(child: const RegisterScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-          return FadeTransition(opacity:animation.drive(CurveTween(curve: Curves.ease)),child: child,);
+          return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
         });
       },
   ),
     GoRoute(path: "/home",pageBuilder: (context, state) {
       return CustomTransitionPage(child: const HomeScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity: animation.drive(CurveTween(curve: Curves.ease)),child: child,);
+        return FadeTransition(opacity: CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
       });
     },),
     GoRoute(path: "/product",pageBuilder: (context,state){
       return  CustomTransitionPage(child: const ProductScreen(), transitionsBuilder: (context,animation,secundaryAnimate,child){
-        return FadeTransition(opacity: animation.drive(CurveTween(curve: Curves.ease)),child: child,);
+        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
       });
     }),
    ],
 
-   redirect: (context, state){
-     final authToken = ref.watch(authCheckProvider).value;
+   redirect: (context, state) async{
+    
+     final authState = ref.watch(authProvider);
       
-      if (authToken!.isEmpty) {
-        return "/login";
+      if (authState.isloading) {
+        return "/loading";
       //n
-      }else {
-        return "/home";
+      }else if(authState.token!=null && authState.token!.isNotEmpty){
+           return "/home";
+      }else{
+        return "/login";
       }
 
    },
