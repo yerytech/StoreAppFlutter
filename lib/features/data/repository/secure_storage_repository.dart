@@ -3,23 +3,23 @@ import 'package:productsapp/features/domain/repositories/securestorage/secure_st
 
 class SecureStorageRepositoryImpl implements SecureStorageRepository {
   final TokenStorage _tokenStorage;
-  
+
   SecureStorageRepositoryImpl({ required TokenStorage tokenStorage }):_tokenStorage=tokenStorage;
   
   @override
-  Future<bool> delete({required String key}) {
+  Future<bool> delete() {
    
-    return _tokenStorage.delete(key);
+    return _tokenStorage.delete();
   }
   
   @override
-  Future<String> read({required String key}) {
-     return _tokenStorage.read( key);
+  Future<String> read() {
+     return _tokenStorage.read();
   }
   
   @override
-  Future<bool> save({required String key, required String value}) {
-     return _tokenStorage.save( key,  value);
+  Future<bool> save({required String value}) {
+     return _tokenStorage.save( value);
   
   }
   

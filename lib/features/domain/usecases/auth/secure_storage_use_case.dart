@@ -6,18 +6,18 @@ class SecureStorageUseCase  {
     
 
     // Guardar token
-   Future <bool>save (String key ,String value) {
-    return  _secureStorageRepository.save(key: key, value: value);
+   Future <bool>save ( String value) {
+    return  _secureStorageRepository.save( value: value);
    }
    
   //  Obtener token
   Future<String>read(String key){
-    return  _secureStorageRepository.read(key: key);
+    return  _secureStorageRepository.read();
   }
 
   // Borrar token 
   Future<bool> delete(String key){
-    return  _secureStorageRepository.delete(key: key);
+    return  _secureStorageRepository.delete();
   }
 
 }

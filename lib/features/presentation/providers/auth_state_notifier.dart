@@ -12,7 +12,7 @@ import 'package:productsapp/features/presentation/providers/authstate.dart';
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthUseCase authUseCase;
   final SecureStorageRepository secureStorage;
-  static const String _tokenKey ="auth_token";
+  
   AuthNotifier(this.authUseCase,this.secureStorage): super(AuthState());
   
 Future<void> login (String email ,String password) async{
@@ -20,7 +20,7 @@ state=state.copyWith(isLoading: true,errorMessage: null);
 try {
   final resp = await authUseCase.login(email, password);
   if (resp.token.isNotEmpty) {
-     await secureStorage.save(key: _tokenKey, value: resp.token);
+     await secureStorage.save(value: resp.token);
   }
 
 
@@ -32,6 +32,9 @@ try {
 }
 
 }
+
+
+
 final tokenStorageProvider = Provider<TokenStorage>((ref) {
 return TokenStorageImpl();
  
