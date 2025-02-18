@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CustomButtom extends StatelessWidget {
-  final VoidCallback onpress;
+class CustomButton extends StatelessWidget {
+  final VoidCallback onPress;
   final String text;
   final IconData icon;
   final  bool disable ;
-  const CustomButtom({
-    super.key, required this.onpress, required this.text, required this.icon, required this.disable,
+  const CustomButton({
+    super.key, required this.onPress, required this.text, required this.icon, required this.disable,
   });
 
   @override
@@ -26,7 +26,7 @@ class CustomButtom extends StatelessWidget {
         children: [
           TextButton(
              style: ButtonStyle(),
-            onPressed: !disable? onpress:null, child: Text(text, style: const TextStyle(  fontSize: 16, fontWeight: FontWeight.bold ,color: Colors.white),), ),
+            onPressed: !disable? onPress:null, child: Text(text, style: const TextStyle(  fontSize: 16, fontWeight: FontWeight.bold ,color: Colors.white),), ),
           Icon(icon, color: !disable? Colors.white:Colors.grey,),
         ],
       ));}

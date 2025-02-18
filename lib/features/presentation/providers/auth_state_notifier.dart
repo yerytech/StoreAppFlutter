@@ -73,3 +73,13 @@ final authProvider = StateNotifierProvider<AuthNotifier,AuthState>((ref) {
 
    return AuthNotifier(authUseCase,secureStorage);
 });
+
+
+final authCheckProvider = FutureProvider<String>((ref) async {
+
+  final secureStorage =ref.watch(secureStorageProvider);
+
+  final token = await secureStorage.read();
+  return token;
+
+});

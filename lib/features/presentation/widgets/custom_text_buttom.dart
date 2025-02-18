@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomTextButtom extends StatelessWidget {
+class CustomTextButton extends StatelessWidget {
   final String textCuestion;
   final String textAnsuwer;
   final VoidCallback onPress;
-  const CustomTextButtom({
+  const CustomTextButton({
     super.key, required this.textCuestion, required this.textAnsuwer, required this.onPress,
   });
 

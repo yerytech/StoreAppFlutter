@@ -13,6 +13,8 @@ const RegisterScreen({super.key});
   Widget build(BuildContext context,ref) {
     var size = MediaQuery.of(context).size;
     final formState = ref.watch(formControllersProvider);
+      final goRouter=ref.watch(goRouterProvider);
+
      
     return  Scaffold(
       body:SafeArea(
@@ -38,12 +40,12 @@ const RegisterScreen({super.key});
                   validator: FormValidators.validatorPassword,
                   hintText: 'Contraseña', icon: Icons.lock_outline, obscureText: true, controller: formState.passwordController,),
                  SizedBox(height: 20,),
-                 CustomButtom(onpress: () { 
+                 CustomButton(onPress: () { 
                   // formState.formKey.currentState!.validate();
                  
                   },icon: Icons.arrow_forward, text: 'Registrarse', disable:false, ),
                  SizedBox(height: 20,),
-                 Center(child: CustomTextButtom(textCuestion: ' ¿Tienes una Cuenta ?', textAnsuwer: 'Ingresar', onPress: () { appRouter.go('/');},)),
+                 Center(child: CustomTextButton(textCuestion: ' ¿Tienes una Cuenta ?', textAnsuwer: 'Ingresar', onPress: () { goRouter.go('/login');},)),
               ],),
             ),
           ),

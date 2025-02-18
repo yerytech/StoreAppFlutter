@@ -19,6 +19,7 @@ const LoginScreen({super.key});
   @override
   Widget build(BuildContext context,ref) {
     final formState= ref.watch(formControllersProvider);
+    final goRouter=ref.watch(goRouterProvider);
 
    
 
@@ -49,7 +50,7 @@ const LoginScreen({super.key});
                 validator: FormValidators.validatorPassword,
                 hintText: 'Contraseña', icon: Icons.lock_outline, obscureText: true, controller: formState.passwordController,),
                SizedBox(height: 20,),
-               CustomButtom(onpress: () async {
+               CustomButton(onPress: () async {
                 formState.formKey.currentState!.validate();
                   
                    await ref.watch(authProvider.notifier).login(formState.emailController.text, formState.passwordController.text);
@@ -57,7 +58,7 @@ const LoginScreen({super.key});
                 
                  },icon: Icons.arrow_forward, text: 'Ingresar', disable:false ),
                SizedBox(height: 20,),
-               Center(child: CustomTextButtom(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () { appRouter.go("/register");},)),
+               Center(child: CustomTextButton(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {  goRouter.go('/register');    },)),
             ],),
           ),
         ),
