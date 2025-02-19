@@ -11,8 +11,7 @@ class ProductsApp extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final routerConfig=ref.watch(goRouterProvider);
     return MaterialApp.router(
-
-      routerConfig:routerConfig ,
+      routerConfig: routerConfig,
     );
   }
 }

@@ -1,5 +1,5 @@
 
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:productsapp/features/presentation/providers/auth_state_notifier.dart';
@@ -12,46 +12,35 @@ final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
       
     
-  initialLocation: "/login",
+  initialLocation: "/loading",
    routes: <RouteBase>[
-    GoRoute(path: "/loading",pageBuilder: (context,state){
-      return CustomTransitionPage(child: const LoadingScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
-      });
-    }),
-    GoRoute(path: "/login", pageBuilder: (context, state) {
-      return CustomTransitionPage(child: const LoginScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
-      });
-    },),
-    GoRoute(
-      path: "/register",
-      pageBuilder: (context, state) {
-        return CustomTransitionPage(child: const RegisterScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-          return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
-        });
-      },
+ 
+
+
+    GoRoute(path: "/loading",
+    
+    builder: (context, state)=>LoadingScreen()),
+    GoRoute( path: "/login",
+     builder: (context, state)  {
+      debugPrint("login estamos ");
+      return LoginScreen();
+     }
   ),
-    GoRoute(path: "/home",pageBuilder: (context, state) {
-      return CustomTransitionPage(child: const HomeScreen(), transitionsBuilder: (context,animation,secundaryAnimation,child){
-        return FadeTransition(opacity: CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
-      });
-    },),
-    GoRoute(path: "/product",pageBuilder: (context,state){
-      return  CustomTransitionPage(child: const ProductScreen(), transitionsBuilder: (context,animation,secundaryAnimate,child){
-        return FadeTransition(opacity:CurveTween(curve: Curves.easeIn).animate(animation),child: child,);
-      });
-    }),
+    GoRoute(
+      path: "/register",builder: (context, state) => RegisterScreen(),
+  ),
+    GoRoute(path: "/home", builder: (context, state) =>   HomeScreen(),),
+    GoRoute(path: "/product",builder: (context, state) => ProductScreen(),),
    ],
 
    redirect: (context, state) async{
     
      final authState = ref.watch(authProvider);
       
-      if (authState.isloading) {
+      if (authState.isLoading) {
         return "/loading";
       //n
-      }else if(authState.token!=null && authState.token!.isNotEmpty){
+      }else if(authState.token!=null || authState.token!.isNotEmpty){
            return "/home";
       }else{
         return "/login";

@@ -23,7 +23,7 @@ try {
      await secureStorage.save(value: resp.token);
   }
 
-  state=state.copyWith(isLoading: false,authresponse: resp,token: resp.token);
+  state=state.copyWith(isLoading: false,authResponse: resp,token: resp.token);
 } catch (e) {
  
   state=state.copyWith(errorMessage: "error al iniciar cessión",isLoading: false);
@@ -38,7 +38,7 @@ try {
   if (resp.isNotEmpty) {
      await secureStorage.delete();
   }
-  state=state.copyWith(isLoading: false,authresponse: null,token: null);
+  state=state.copyWith(isLoading: false,authResponse: null,token: null);
 } catch (e) {
  
   state=state.copyWith(errorMessage: "error al iniciar cessión",isLoading: false);

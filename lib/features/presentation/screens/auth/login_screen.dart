@@ -58,7 +58,7 @@ const LoginScreen({super.key});
                   
                     ref.watch(authProvider.notifier).logIn(formState.emailController.text, formState.passwordController.text);             
                 
-                 },icon: Icons.arrow_forward, text: 'Ingresar', disable:authCheeck.isloading ),
+                 },icon: Icons.arrow_forward, text: 'Ingresar', disable:authCheeck.isLoading ),
                SizedBox(height: 20,),
                Center(child: CustomTextButton(textCuestion: ' ¿Notines Cuenta ?', textAnsuwer: 'Crea una', onPress: () {  goRouter.go('/register');    },)),
             ],),
